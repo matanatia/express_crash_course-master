@@ -56,7 +56,7 @@ router.post('/', (req, res) => {
   }
 
   heros.push(newHero);
-  res.json(heros);
+  res.json(newHero);
   // res.redirect('/');
 });
 
