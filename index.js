@@ -3,6 +3,7 @@ const path = require('path');
 const exphbs = require('express-handlebars');
 const logger = require('./middleware/logger');
 const members = require('./Members');
+var cors = require('cors');
 
 const app = express();
 
@@ -16,6 +17,8 @@ const app = express();
 // Body Parser Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+//Cors Middleware - with this all http req get hendel no matter the sorce of the req 
+app.use(cors());
 
 // Homepage Route
 // app.get('/', (req, res) =>

@@ -23,7 +23,7 @@ router.get('/:id', (req, res) => {
   const found = heros.some(hero => hero.id === parseInt(req.params.id));
 
   if (found) {
-    res.json(heros.filter(hero => hero.id === parseInt(req.params.id)));
+    res.json(heros.filter(hero => hero.id === parseInt(req.params.id))[0]);
   } else {
     res.status(400).json({ msg: `No hero with the id of ${req.params.id}` });
   }
