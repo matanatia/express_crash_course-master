@@ -29,6 +29,19 @@ router.get('/:id', (req, res) => {
   }
 });
 
+// Get a searched arry of heros
+/*
+fetch("http://localhost:5000/api/heros/?name=${term}")
+.then(res => res.json())
+.then(response => console.log('Success:', JSON.stringify(response)))
+.catch(error => console.error('Error:', error));
+*/
+router.get('/search/:name', (req, res) => {
+  const found = heros.filter(hero => hero.name.toLocaleLowerCase().includes(req.params.name.toLocaleLowerCase()));
+  //return [] if the name wasent found or arry with the right matches
+  res.json(found);
+});
+
 // Create hero
 /*
 let data = { name: "number 5", power:"time travel"};
