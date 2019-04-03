@@ -44,8 +44,9 @@ fetch("http://localhost:5000/api/heros", {
 .catch(error => console.error('Error:', error));
 */
 router.post('/', (req, res) => {
+  let hero_id =  heros === [] ? 1 : heros[heros.length-1].id +1;
   const newHero = {
-    id: heros[heros.length-1].id +1,
+    id: hero_id,
     name: req.body.name,
     power: req.body.power,
     status: 'active'
@@ -102,9 +103,6 @@ fetch("http://localhost:5000/api/heros/{id}", {
 */
 router.delete('/:id', (req, res) => {
     const found = heros.some(hero => hero.id === parseInt(req.params.id)); //req.body
-
-    console.log(req.params.id);
-    console.log(heros);
     
     if (found) {
       heros = heros.filter(hero => hero.id !== parseInt(req.params.id));
