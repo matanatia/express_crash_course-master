@@ -44,7 +44,8 @@ fetch("http://localhost:5000/api/heros", {
 .catch(error => console.error('Error:', error));
 */
 router.post('/', (req, res) => {
-  let hero_id =  heros === [] ? 1 : heros[heros.length-1].id +1;
+  hero_id = (heros.length === 0) ? 1 : heros[heros.length-1].id +1;
+
   const newHero = {
     id: hero_id,
     name: req.body.name,
