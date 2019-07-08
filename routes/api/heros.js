@@ -1,7 +1,7 @@
 const express = require('express');
 const uuid = require('uuid');
 const router = express.Router();
-let heros = require('../../resorce/Heros');
+let heros = require('../../resource/Heros');
 
 // Gets All Heros
 /*
