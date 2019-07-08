@@ -8,7 +8,7 @@ var cors = require('cors');
 const app = express();
 
 // Init middleware
-// app.use(logger);
+app.use(logger);
 
 // Handlebars Middleware
 //app.engine('handlebars', exphbs({ defaultLayout: 'main' }));

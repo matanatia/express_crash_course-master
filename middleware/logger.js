@@ -1,10 +1,9 @@
 const moment = require('moment');
 
 const logger = (req, res, next) => {
+  const date = new Date();
   console.log(
-    `${req.protocol}://${req.get('host')}${
-      req.originalUrl
-    }: ${moment().format()}`
+    `${req.method}  - ${req.protocol}://${req.get('host')}${req.originalUrl} -  ${date.toGMTString()}`
   );
   next();
 };
